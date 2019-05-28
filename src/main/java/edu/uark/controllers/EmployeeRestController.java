@@ -12,7 +12,7 @@ import java.util.UUID;
 
 //All Ross did was copy the "ProductResetController"
 @RestController
-@RequestMapping(value = "/product")
+@RequestMapping(value = "/employee")
 public class EmployeeRestController
 {
 	@RequestMapping(value = "/apiv0/{productId}", method = RequestMethod.GET)
