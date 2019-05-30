@@ -21,9 +21,9 @@ import edu.uark.models.api.ProductListing;
 public class ProductRestController
 {
 	@ResponseBody
-	@RequestMapping(value = "/test2}", method = RequestMethod.GET)
+	@RequestMapping(value = "/test2", method = RequestMethod.GET)
 	public String test2() {
-//		System.out.println("test method");
+		System.out.println("test method");
 		return "test2";
 	}
 
