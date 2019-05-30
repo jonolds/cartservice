@@ -35,6 +35,7 @@ public class ProductRestController
 	
 	@RequestMapping(value = "/apiv0/{productId}", method = RequestMethod.GET)
 	public Product getProduct(@PathVariable UUID productId) {
+		System.out.println("rest address: product/apiv0/" + productId);
 		return (new ProductQuery()).setProductId(productId).execute();
 	}
 
