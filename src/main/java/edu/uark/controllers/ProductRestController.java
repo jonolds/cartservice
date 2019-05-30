@@ -21,7 +21,7 @@ import edu.uark.models.api.ProductListing;
 public class ProductRestController
 {
 	@ResponseBody
-	@RequestMapping(value = "/test2", method = RequestMethod.GET)
+	@RequestMapping(value = "/test2/{message}", method = RequestMethod.GET)
 	public String test2(@PathVariable String message) {
 		System.out.println("test2/" + message);
 		return "/test2/" + message + "  user output";
