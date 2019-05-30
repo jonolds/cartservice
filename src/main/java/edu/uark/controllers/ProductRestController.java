@@ -22,12 +22,18 @@ public class ProductRestController
 {
 	@ResponseBody
 	@RequestMapping(value = "/test2/{message}", method = RequestMethod.GET)
-	public String test2(@PathVariable UUID message) {
+	public String test2(@PathVariable String message) {
 		System.out.println("test2/" + message);
-		return "/test2/" + message + "  user output";
+		return "/test2/" + message + "  user output - String";
 	}
 	
-
+	@ResponseBody
+	@RequestMapping(value = "/test2/{message}", method = RequestMethod.GET)
+	public String test2(@PathVariable UUID message) {
+		System.out.println("test2/" + message);
+		return "/test2/" + message + "  user output - UUID";
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String test() {
