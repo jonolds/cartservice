@@ -23,9 +23,16 @@ public class ProductRestController
 	@ResponseBody
 	@RequestMapping(value = "/test2}", method = RequestMethod.GET)
 	public String test2() {
-		System.out.println("test method");
+//		System.out.println("test method");
 		return "test2";
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test() {
+		return "Things are cool";
+	}
+	
 	@RequestMapping(value = "/apiv0/{productId}", method = RequestMethod.GET)
 	public Product getProduct(@PathVariable UUID productId) {
 		return (new ProductQuery()).setProductId(productId).execute();
@@ -46,9 +53,4 @@ public class ProductRestController
 		return (new ProductSaveCommand()).setApiProduct(product).execute();
 	}
 
-	@ResponseBody
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String test() {
-		return "Things are cool";
-	}
 }
