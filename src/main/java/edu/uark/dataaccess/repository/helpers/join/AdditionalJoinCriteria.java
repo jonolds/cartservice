@@ -8,8 +8,7 @@ import edu.uark.dataaccess.repository.helpers.PostgreFunctionType;
 import edu.uark.dataaccess.repository.helpers.SQLComparisonType;
 import edu.uark.dataaccess.repository.helpers.SQLConditionalType;
 
-public class AdditionalJoinCriteria
-{
+public class AdditionalJoinCriteria {
 	private SQLConditionalType conditional;
 	private DatabaseTable joinOnTable;
 	private String joinOnTableName;
@@ -72,7 +71,7 @@ public class AdditionalJoinCriteria
 	}
 
 	@Override
-	public String toString() {
+	public String toString( ) {
 		if (!validate()) {
 			return StringUtils.EMPTY;
 		}
@@ -109,7 +108,7 @@ public class AdditionalJoinCriteria
 		return sb.toString();
 	}
 
-	private boolean validate() {
+	private boolean validate( ) {
 		boolean valid = true;
 
 		if (conditional == SQLConditionalType.NONE) {
@@ -134,7 +133,7 @@ public class AdditionalJoinCriteria
 	private static final String PARAMETER_PLACEHOLDER = "?";
 	private static final String TABLE_FIELD_SEPARATOR = ".";
 
-	public AdditionalJoinCriteria() {
+	public AdditionalJoinCriteria( ) {
 		this.conditional = SQLConditionalType.NONE;
 		this.joinOnTable = DatabaseTable.NONE;
 		this.joinOnTableName = StringUtils.EMPTY;

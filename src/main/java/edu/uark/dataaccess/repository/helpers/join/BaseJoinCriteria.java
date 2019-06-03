@@ -5,8 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import edu.uark.dataaccess.repository.DatabaseTable;
 import edu.uark.dataaccess.repository.helpers.SQLComparisonType;
 
-public class BaseJoinCriteria
-{
+public class BaseJoinCriteria {
 	private SQLJoinType type;
 	private DatabaseTable joinOnTable;
 	private String joinOnTableName;
@@ -57,7 +56,7 @@ public class BaseJoinCriteria
 	}
 
 	@Override
-	public String toString() {
+	public String toString( ) {
 		if (!validate()) {
 			return StringUtils.EMPTY;
 		}
@@ -75,7 +74,7 @@ public class BaseJoinCriteria
 				.append(TABLE_FIELD_SEPARATOR).append(joinWithFieldName)).toString();
 	}
 
-	private boolean validate() {
+	private boolean validate( ) {
 		boolean valid = true;
 
 		if ((type == SQLJoinType.NONE) && joinOnTable.equals(StringUtils.EMPTY)) {
@@ -103,7 +102,7 @@ public class BaseJoinCriteria
 	private static final String JOIN_KEYWORD = " JOIN ";
 	private static final String TABLE_FIELD_SEPARATOR = ".";
 
-	public BaseJoinCriteria() {
+	public BaseJoinCriteria( ) {
 		type = SQLJoinType.NONE;
 		joinOnTable = DatabaseTable.NONE;
 		joinOnTableName = StringUtils.EMPTY;

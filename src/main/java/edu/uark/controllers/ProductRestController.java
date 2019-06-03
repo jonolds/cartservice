@@ -18,21 +18,20 @@ import edu.uark.models.api.ProductListing;
 
 @RestController
 @RequestMapping(value = "/product")
-public class ProductRestController
-{
+public class ProductRestController {
 	@ResponseBody
 	@RequestMapping(value = "/test2/{message}", method = RequestMethod.GET)
 	public String test2(@PathVariable String message) {
 		System.out.println("test2/" + message);
 		return "/test2/" + message + "  user output - String";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String test() {
+	public String test( ) {
 		return "Things are cool";
 	}
-	
+
 	@RequestMapping(value = "/apiv0/{productId}", method = RequestMethod.GET)
 	public Product getProduct(@PathVariable UUID productId) {
 		System.out.println("rest address: product/apiv0/" + productId);
@@ -45,7 +44,7 @@ public class ProductRestController
 	}
 
 	@RequestMapping(value = "/apiv0/products", method = RequestMethod.GET)
-	public ProductListing getProducts() {
+	public ProductListing getProducts( ) {
 		return (new ProductsQuery()).execute();
 	}
 
@@ -53,5 +52,4 @@ public class ProductRestController
 	public Product putActivity(@RequestBody Product product) {
 		return (new ProductSaveCommand()).setApiProduct(product).execute();
 	}
-
 }

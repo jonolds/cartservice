@@ -11,10 +11,9 @@ import edu.uark.models.entities.ProductEntity;
 import edu.uark.models.repositories.ProductRepository;
 import edu.uark.models.repositories.interfaces.ProductRepositoryInterface;
 
-public class ProductSaveCommand implements ResultCommandInterface<Product>
-{
+public class ProductSaveCommand implements ResultCommandInterface<Product> {
 	@Override
-	public Product execute() {
+	public Product execute( ) {
 		if (StringUtils.isBlank(this.apiProduct.getLookupCode())) {
 			return (new Product()).setApiRequestStatus(ProductApiRequestStatus.INVALID_INPUT);
 		}
@@ -42,7 +41,7 @@ public class ProductSaveCommand implements ResultCommandInterface<Product>
 	// Properties
 	private Product apiProduct;
 
-	public Product getApiProduct() {
+	public Product getApiProduct( ) {
 		return this.apiProduct;
 	}
 
@@ -53,7 +52,7 @@ public class ProductSaveCommand implements ResultCommandInterface<Product>
 
 	private ProductRepositoryInterface productRepository;
 
-	public ProductRepositoryInterface getProductRepository() {
+	public ProductRepositoryInterface getProductRepository( ) {
 		return this.productRepository;
 	}
 
@@ -62,7 +61,7 @@ public class ProductSaveCommand implements ResultCommandInterface<Product>
 		return this;
 	}
 
-	public ProductSaveCommand() {
+	public ProductSaveCommand( ) {
 		this.productRepository = new ProductRepository();
 	}
 }

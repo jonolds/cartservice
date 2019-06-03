@@ -24,38 +24,36 @@ import edu.uark.dataaccess.repository.helpers.orderby.OrderByContainer;
 import edu.uark.dataaccess.repository.helpers.where.WhereClause;
 import edu.uark.dataaccess.repository.helpers.where.WhereContainer;
 
-public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRepositoryInterface<T>
-{
-	public int count() {
+public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRepositoryInterface<T> {
+	protected DatabaseTable primaryTable;
+
+	public int count( ) {
 		return countWhere(null, null);
 	}
 
 	public T get(UUID id) {
 		return firstOrDefaultWhere(null, (new WhereContainer((new WhereClause()).table(primaryTable)
 				.fieldName(BaseFieldNames.ID).comparison(SQLComparisonType.EQUALS))), null, (ps) -> {
-					try {
-						ps.setObject(1, id);
-					} catch (SQLException e) {
-					}
-
-					return ps;
-				});
+			try {
+				ps.setObject(1, id);
+			} catch (SQLException e) { }
+			return ps;
+		});
 	}
 
-	public Collection<T> all() {
+	public Collection<T> all( ) {
 		return allWhere(null, null, null, INVALID_INDEX, INVALID_INDEX, null);
 	}
 
 	public boolean exists(UUID id) {
 		return existsWhere(null, (new WhereContainer((new WhereClause()).table(primaryTable)
 				.fieldName(BaseFieldNames.ID).comparison(SQLComparisonType.EQUALS))), null, (ps) -> {
-					try {
-						ps.setObject(1, id);
-					} catch (SQLException e) {
-					}
+			try {
+				ps.setObject(1, id);
+			} catch (SQLException e) { }
 
-					return ps;
-				});
+			return ps;
+		});
 	}
 
 	public void saveMany(Collection<T> allToSave) {
@@ -93,13 +91,12 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 	public Collection<T> getMany(Collection<UUID> ids) {
 		return allWhere((new WhereContainer((new WhereClause()).table(primaryTable).fieldName(BaseFieldNames.ID)
 				.comparison(SQLComparisonType.EQUALS).postgreFunction(PostgreFunctionType.ANY))), (ps) -> {
-					try {
-						ps.setArray(1, ps.getConnection().createArrayOf("uuid", ids.toArray(new UUID[ids.size()])));
-					} catch (SQLException e) {
-					}
+			try {
+				ps.setArray(1, ps.getConnection().createArrayOf("uuid", ids.toArray(new UUID[ids.size()])));
+			} catch (SQLException e) { }
 
-					return ps;
-				});
+			return ps;
+		});
 	}
 
 	public void deleteMany(Collection<T> allToDelete) {
@@ -153,19 +150,17 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 		}
 	}
 
-	public String getPrimaryTableName() {
+	public String getPrimaryTableName( ) {
 		return primaryTable.getLabel();
 	}
 
-	protected abstract T createOne();
+	protected abstract T createOne( );
 
-	protected DatabaseTable primaryTable;
-
-	protected String getDefaultProjection() {
+	protected String getDefaultProjection( ) {
 		return String.format("%s.*", primaryTable.getLabel());
 	}
 
-	protected Connection openConnection() throws SQLException, URISyntaxException {
+	protected Connection openConnection( ) throws SQLException, URISyntaxException {
 		return DatabaseUrl.extract().getConnection();
 	}
 
@@ -175,14 +170,14 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 	}
 
 	protected T
-			firstOrDefaultWhere(JoinContainer[] joins, WhereContainer where, UnaryOperator<PreparedStatement> setArgsOperator) {
+	firstOrDefaultWhere(JoinContainer[] joins, WhereContainer where, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return firstOrDefaultWhere(joins, where, null, setArgsOperator);
 	}
 
 	protected T
-			firstOrDefaultWhere(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, UnaryOperator<PreparedStatement> setArgsOperator) {
+	firstOrDefaultWhere(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return selectFirstOrDefault(
-				selectQuery((new String[] { getDefaultProjection() }), joins, where, orderBy, 1, INVALID_INDEX),
+				selectQuery((new String[]{getDefaultProjection()}), joins, where, orderBy, 1, INVALID_INDEX),
 				setArgsOperator);
 	}
 
@@ -226,38 +221,38 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 	}
 
 	protected Collection<T>
-			allWhere(WhereContainer where, int limit, int offset, UnaryOperator<PreparedStatement> setArgsOperator) {
+	allWhere(WhereContainer where, int limit, int offset, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return allWhere(null, where, null, limit, offset, setArgsOperator);
 	}
 
 	protected Collection<T>
-			allWhere(JoinContainer[] joins, WhereContainer where, UnaryOperator<PreparedStatement> setArgsOperator) {
+	allWhere(JoinContainer[] joins, WhereContainer where, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return allWhere(joins, where, null, INVALID_INDEX, INVALID_INDEX, setArgsOperator);
 	}
 
 	protected Collection<T>
-			allWhere(WhereContainer where, OrderByContainer[] orderBy, UnaryOperator<PreparedStatement> setArgsOperator) {
+	allWhere(WhereContainer where, OrderByContainer[] orderBy, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return allWhere(null, where, orderBy, INVALID_INDEX, INVALID_INDEX, setArgsOperator);
 	}
 
 	protected Collection<T>
-			allWhere(JoinContainer[] joins, WhereContainer where, int limit, int offset, UnaryOperator<PreparedStatement> setArgsOperator) {
+	allWhere(JoinContainer[] joins, WhereContainer where, int limit, int offset, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return allWhere(joins, where, null, limit, offset, setArgsOperator);
 	}
 
 	protected Collection<T>
-			allWhere(WhereContainer where, OrderByContainer[] orderBy, int limit, int offset, UnaryOperator<PreparedStatement> setArgsOperator) {
+	allWhere(WhereContainer where, OrderByContainer[] orderBy, int limit, int offset, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return allWhere(null, where, orderBy, limit, offset, setArgsOperator);
 	}
 
 	protected Collection<T>
-			allWhere(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, UnaryOperator<PreparedStatement> setArgsOperator) {
+	allWhere(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return allWhere(joins, where, null, INVALID_INDEX, INVALID_INDEX, setArgsOperator);
 	}
 
 	protected Collection<T>
-			allWhere(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset, UnaryOperator<PreparedStatement> setArgsOperator) {
-		return selectAll(selectQuery((new String[] { getDefaultProjection() }), joins, where, orderBy, limit, offset),
+	allWhere(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset, UnaryOperator<PreparedStatement> setArgsOperator) {
+		return selectAll(selectQuery((new String[]{getDefaultProjection()}), joins, where, orderBy, limit, offset),
 				setArgsOperator);
 	}
 
@@ -299,12 +294,12 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 	}
 
 	protected boolean
-			existsWhere(JoinContainer[] joins, WhereContainer where, UnaryOperator<PreparedStatement> setArgsOperator) {
+	existsWhere(JoinContainer[] joins, WhereContainer where, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return existsWhere(joins, where, null, setArgsOperator);
 	}
 
 	protected boolean
-			existsWhere(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, UnaryOperator<PreparedStatement> setArgsOperator) {
+	existsWhere(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, UnaryOperator<PreparedStatement> setArgsOperator) {
 		return exists(existsQuery(joins, where, orderBy, 1, INVALID_INDEX), setArgsOperator);
 	}
 
@@ -335,7 +330,7 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 
 	// Count
 	protected int countWhere(WhereContainer where, UnaryOperator<PreparedStatement> setArgsOperator) {
-		return count(selectQuery((new String[] { COUNT_PROJECTION }), null, where, null, INVALID_INDEX, INVALID_INDEX),
+		return count(selectQuery((new String[]{COUNT_PROJECTION}), null, where, null, INVALID_INDEX, INVALID_INDEX),
 				setArgsOperator);
 	}
 
@@ -388,7 +383,7 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 	}
 
 	private String
-			selectQuery(String[] projection, JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset) {
+	selectQuery(String[] projection, JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset) {
 		StringBuilder selectQuery = new StringBuilder().append("SELECT ").append(String.join(",", projection))
 				.append(fromAndWhereClause(joins, where, orderBy, limit, offset));
 
@@ -397,7 +392,7 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 
 	// Helper methods
 	private String
-			existsQuery(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset) {
+	existsQuery(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset) {
 		StringBuilder existsQuery = new StringBuilder().append("SELECT EXISTS (SELECT 1")
 				.append(fromAndWhereClause(joins, where, orderBy, limit, offset)).append(")");
 
@@ -412,7 +407,7 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 	}
 
 	private String
-			fromAndWhereClause(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset) {
+	fromAndWhereClause(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset) {
 		StringBuilder fromAndWhereClause = new StringBuilder().append(" FROM ").append(getPrimaryTableName());
 
 		if ((joins != null) && (joins.length > 0)) {

@@ -1,0 +1,438 @@
+@startuml
+
+title __CARTSERVICE's Class Diagram__\n
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          package edu.uark.dataaccess.repository.helpers.join {
+            class AdditionalJoinCriteria {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.entities {
+        abstract class BaseEntity {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.entities {
+        class BaseFieldNames {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          package edu.uark.dataaccess.repository.helpers.join {
+            class BaseJoinCriteria {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        abstract class BaseRepository {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        interface BaseRepositoryInterface {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      class CartApplication {
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        enum DatabaseTable {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.models.entities {
+        class EmployeeEntity {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.models.repositories {
+        class EmployeeRepository {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          package edu.uark.dataaccess.repository.helpers.join {
+            class JoinContainer {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          package edu.uark.dataaccess.repository.helpers.orderby {
+            class OrderByContainer {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          enum PostgreEquivalencyType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          enum PostgreFunctionType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.models.api {
+        class Product {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.models.api {
+        package edu.uark.models.api.enums {
+          enum ProductApiRequestStatus {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.commands {
+        package edu.uark.commands.products {
+          class ProductByLookupCodeQuery {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.models.entities {
+        class ProductEntity {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.models.entities {
+        package edu.uark.models.entities.fieldnames {
+          class ProductFieldNames {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.models.api {
+        class ProductListing {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.commands {
+        package edu.uark.commands.products {
+          class ProductQuery {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.models.repositories {
+        class ProductRepository {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.models.repositories {
+        package edu.uark.models.repositories.interfaces {
+          interface ProductRepositoryInterface {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.controllers {
+        class ProductRestController {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.commands {
+        package edu.uark.commands.products {
+          class ProductSaveCommand {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.commands {
+        package edu.uark.commands.products {
+          class ProductsQuery {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.commands {
+        interface ResultCommandInterface {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          enum SQLComparisonType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          enum SQLConditionalType {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          package edu.uark.dataaccess.repository.helpers.join {
+            enum SQLJoinType {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          enum SQLSortOrder {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.commands {
+        interface VoidCommandInterface {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          package edu.uark.dataaccess.repository.helpers.where {
+            class WhereClause {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package edu.uark {
+      package edu.uark.dataaccess.repository {
+        package edu.uark.dataaccess.repository.helpers {
+          package edu.uark.dataaccess.repository.helpers.where {
+            class WhereContainer {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  AdditionalJoinCriteria o-- SQLConditionalType : conditional
+  AdditionalJoinCriteria o-- DatabaseTable : joinOnTable
+  AdditionalJoinCriteria o-- SQLComparisonType : comparison
+  AdditionalJoinCriteria o-- PostgreFunctionType : joinOnApplyFunction
+  AdditionalJoinCriteria o-- DatabaseTable : externalTable
+  AdditionalJoinCriteria o-- PostgreEquivalencyType : equivalencyFunction
+  BaseJoinCriteria o-- SQLJoinType : type
+  BaseJoinCriteria o-- DatabaseTable : joinOnTable
+  BaseJoinCriteria o-- SQLComparisonType : comparison
+  BaseJoinCriteria o-- DatabaseTable : joinWithTable
+  BaseRepository -up-|> BaseRepositoryInterface
+  BaseRepository o-- DatabaseTable : primaryTable
+  JoinContainer o-- BaseJoinCriteria : baseCriteria
+  OrderByContainer o-- DatabaseTable : orderByTable
+  OrderByContainer o-- SQLSortOrder : direction
+  Product o-- ProductApiRequestStatus : apiRequestStatus
+  ProductByLookupCodeQuery -up-|> ResultCommandInterface
+  ProductByLookupCodeQuery o-- ProductRepositoryInterface : productRepository
+  ProductEntity -up-|> BaseEntity
+  ProductFieldNames -up-|> BaseFieldNames
+  ProductQuery -up-|> ResultCommandInterface
+  ProductQuery o-- ProductRepositoryInterface : productRepository
+  ProductRepository -up-|> ProductRepositoryInterface
+  ProductRepository -up-|> BaseRepository
+  ProductSaveCommand -up-|> ResultCommandInterface
+  ProductSaveCommand o-- Product : apiProduct
+  ProductSaveCommand o-- ProductRepositoryInterface : productRepository
+  ProductsQuery -up-|> ResultCommandInterface
+  ProductsQuery o-- ProductRepositoryInterface : productRepository
+  WhereClause o-- SQLConditionalType : conditional
+  WhereClause o-- DatabaseTable : table
+  WhereClause o-- PostgreFunctionType : postgreFunction
+  WhereClause o-- SQLComparisonType : comparison
+  WhereContainer o-- WhereClause : initialClause
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

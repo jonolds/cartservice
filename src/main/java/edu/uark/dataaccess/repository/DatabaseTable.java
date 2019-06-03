@@ -1,15 +1,16 @@
 package edu.uark.dataaccess.repository;
 
 public enum DatabaseTable {
-	NONE(""), PRODUCT("product");
+	NONE(""),
+	PRODUCT("product");
 
-	public String getLabel() {
+	public String getLabel( ) {
 		return label;
 	}
 
 	private final String label;
 
-	private DatabaseTable(String label) {
+	DatabaseTable(String label) {
 		this.label = label;
 	}
 }

@@ -4,15 +4,14 @@ import java.util.LinkedList;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class JoinContainer
-{
+public class JoinContainer {
 	public JoinContainer addAdditionalCriteria(AdditionalJoinCriteria additionalCriteria) {
 		this.additionalCriteria.add(additionalCriteria);
 		return this;
 	}
 
 	@Override
-	public String toString() {
+	public String toString( ) {
 		if (!validate()) {
 			return StringUtils.EMPTY;
 		}
@@ -30,7 +29,7 @@ public class JoinContainer
 		return join.toString();
 	}
 
-	private boolean validate() {
+	private boolean validate( ) {
 		return (baseCriteria != null);
 	}
 

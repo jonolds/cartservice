@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="2239.25" y="0.0">edu.uark.dataaccess.repository.helpers.where.WhereClause</node>
+    <node x="0.0" y="3003.0">edu.uark.dataaccess.repository.helpers.join.JoinContainer</node>
+    <node x="941.0" y="2718.0">edu.uark.commands.products.ProductByLookupCodeQuery</node>
+    <node x="2332.0" y="2718.0">edu.uark.models.entities.fieldnames.ProductFieldNames</node>
+    <node x="1709.0" y="3003.0">edu.uark.models.api.ProductListing</node>
+    <node x="1389.25" y="0.0">edu.uark.dataaccess.repository.helpers.join.AdditionalJoinCriteria</node>
+    <node x="534.4464285714286" y="2472.0">edu.uark.models.repositories.ProductRepository</node>
+    <node x="0.0" y="2617.0">edu.uark.dataaccess.repository.helpers.orderby.OrderByContainer</node>
+    <node x="578.25" y="0.0">edu.uark.dataaccess.entities.BaseEntity</node>
+    <node x="1167.5" y="2617.0">edu.uark.commands.ResultCommandInterface</node>
+    <node x="363.0" y="2617.0">edu.uark.dataaccess.repository.helpers.SQLComparisonType</node>
+    <node x="992.25" y="1016.0">edu.uark.models.entities.ProductEntity</node>
+    <node x="1998.0" y="3003.0">edu.uark.dataaccess.repository.DatabaseTable</node>
+    <node x="1262.0" y="3003.0">edu.uark.dataaccess.repository.helpers.SQLConditionalType</node>
+    <node x="1597.0" y="2742.0">edu.uark.commands.products.ProductsQuery</node>
+    <node x="1507.0" y="3003.0">edu.uark.dataaccess.repository.helpers.join.SQLJoinType</node>
+    <node x="671.25" y="1029.0">edu.uark.dataaccess.repository.BaseRepositoryInterface</node>
+    <node x="994.0" y="3003.0">edu.uark.dataaccess.repository.helpers.PostgreEquivalencyType</node>
+    <node x="2213.0" y="3003.0">edu.uark.dataaccess.repository.helpers.SQLSortOrder</node>
+    <node x="670.0" y="3003.0">edu.uark.controllers.ProductRestController</node>
+    <node x="1950.0" y="2617.0">edu.uark.models.api.enums.ProductApiRequestStatus</node>
+    <node x="2348.0" y="2617.0">edu.uark.dataaccess.entities.BaseFieldNames</node>
+    <node x="0.0" y="1360.0">edu.uark.dataaccess.repository.BaseRepository</node>
+    <node x="2624.25" y="0.0">edu.uark.models.api.Product</node>
+    <node x="776.0" y="1865.5">edu.uark.models.repositories.interfaces.ProductRepositoryInterface</node>
+    <node x="421.0" y="3003.0">edu.uark.dataaccess.repository.helpers.PostgreFunctionType</node>
+    <node x="2541.0" y="2617.0">edu.uark.dataaccess.repository.helpers.where.WhereContainer</node>
+    <node x="1269.0" y="2718.0">edu.uark.commands.products.ProductSaveCommand</node>
+    <node x="1862.25" y="0.0">edu.uark.dataaccess.repository.helpers.join.BaseJoinCriteria</node>
+    <node x="613.0" y="2718.0">edu.uark.commands.products.ProductQuery</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.uark.commands.products.ProductQuery" target="edu.uark.commands.ResultCommandInterface">
+      <point x="0.0" y="-87.0" />
+      <point x="767.0" y="2688.0" />
+      <point x="1190.375" y="2688.0" />
+      <point x="-68.625" y="25.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductsQuery" target="edu.uark.commands.ResultCommandInterface">
+      <point x="0.0" y="-63.0" />
+      <point x="1751.0" y="2688.0" />
+      <point x="1327.625" y="2688.0" />
+      <point x="68.625" y="25.5" />
+    </edge>
+    <edge source="edu.uark.dataaccess.repository.BaseRepository" target="edu.uark.dataaccess.entities.BaseEntity">
+      <point x="-189.0" y="-531.0" />
+      <point x="189.0" y="991.0" />
+      <point x="659.4166666666666" y="991.0" />
+      <point x="-162.33333333333337" y="483.0" />
+    </edge>
+    <edge source="edu.uark.models.entities.ProductEntity" target="edu.uark.dataaccess.entities.BaseEntity">
+      <point x="0.0" y="-147.0" />
+      <point x="1168.25" y="991.0" />
+      <point x="984.0833333333333" y="991.0" />
+      <point x="162.33333333333337" y="483.0" />
+    </edge>
+    <edge source="edu.uark.dataaccess.repository.BaseRepository" target="edu.uark.dataaccess.repository.BaseRepositoryInterface">
+      <point x="189.0" y="-531.0" />
+      <point x="567.0" y="1335.0" />
+      <point x="746.5" y="1335.0" />
+      <point x="-75.25" y="134.0" />
+    </edge>
+    <edge source="edu.uark.models.repositories.ProductRepository" target="edu.uark.models.repositories.interfaces.ProductRepositoryInterface">
+      <point x="61.75" y="-50.0" />
+      <point x="719.6964285714286" y="2447.0" />
+      <point x="897.0" y="2447.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductSaveCommand" target="edu.uark.commands.ResultCommandInterface">
+      <point x="0.0" y="-87.0" />
+      <point x="1423.0" y="2698.0" />
+      <point x="1281.875" y="2698.0" />
+      <point x="22.875" y="25.5" />
+    </edge>
+    <edge source="edu.uark.models.entities.fieldnames.ProductFieldNames" target="edu.uark.dataaccess.entities.BaseFieldNames">
+      <point x="0.0" y="-49.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductByLookupCodeQuery" target="edu.uark.commands.ResultCommandInterface">
+      <point x="0.0" y="-87.0" />
+      <point x="1095.0" y="2698.0" />
+      <point x="1236.125" y="2698.0" />
+      <point x="-22.875" y="25.5" />
+    </edge>
+    <edge source="edu.uark.models.repositories.interfaces.ProductRepositoryInterface" target="edu.uark.dataaccess.repository.BaseRepositoryInterface">
+      <point x="0.0" y="-25.5" />
+      <point x="75.25" y="134.0" />
+    </edge>
+    <edge source="edu.uark.dataaccess.repository.BaseRepositoryInterface" target="edu.uark.dataaccess.entities.BaseEntity">
+      <point x="0.0" y="-134.0" />
+      <point x="0.0" y="483.0" />
+    </edge>
+    <edge source="edu.uark.models.repositories.ProductRepository" target="edu.uark.dataaccess.repository.BaseRepository">
+      <point x="-61.75" y="-50.0" />
+      <point x="596.1964285714286" y="2447.0" />
+      <point x="378.0" y="2447.0" />
+      <point x="0.0" y="531.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.667648502700049" x="824.0069852941177" y="1361.4966911764707" />
+  <SelectedNodes>
+    <node>edu.uark.dataaccess.repository.helpers.where.WhereClause</node>
+    <node>edu.uark.dataaccess.repository.helpers.join.JoinContainer</node>
+    <node>edu.uark.commands.products.ProductByLookupCodeQuery</node>
+    <node>edu.uark.models.entities.fieldnames.ProductFieldNames</node>
+    <node>edu.uark.models.api.ProductListing</node>
+    <node>edu.uark.dataaccess.repository.helpers.join.AdditionalJoinCriteria</node>
+    <node>edu.uark.models.repositories.ProductRepository</node>
+    <node>edu.uark.dataaccess.repository.helpers.orderby.OrderByContainer</node>
+    <node>edu.uark.dataaccess.entities.BaseEntity</node>
+    <node>edu.uark.commands.ResultCommandInterface</node>
+    <node>edu.uark.dataaccess.repository.helpers.SQLComparisonType</node>
+    <node>edu.uark.models.entities.ProductEntity</node>
+    <node>edu.uark.dataaccess.repository.DatabaseTable</node>
+    <node>edu.uark.dataaccess.repository.helpers.SQLConditionalType</node>
+    <node>edu.uark.commands.products.ProductsQuery</node>
+    <node>edu.uark.dataaccess.repository.helpers.join.SQLJoinType</node>
+    <node>edu.uark.dataaccess.repository.BaseRepositoryInterface</node>
+    <node>edu.uark.dataaccess.repository.helpers.PostgreEquivalencyType</node>
+    <node>edu.uark.dataaccess.repository.helpers.SQLSortOrder</node>
+    <node>edu.uark.controllers.ProductRestController</node>
+    <node>edu.uark.models.api.enums.ProductApiRequestStatus</node>
+    <node>edu.uark.dataaccess.entities.BaseFieldNames</node>
+    <node>edu.uark.dataaccess.repository.BaseRepository</node>
+    <node>edu.uark.models.api.Product</node>
+    <node>edu.uark.models.repositories.interfaces.ProductRepositoryInterface</node>
+    <node>edu.uark.dataaccess.repository.helpers.PostgreFunctionType</node>
+    <node>edu.uark.dataaccess.repository.helpers.where.WhereContainer</node>
+    <node>edu.uark.commands.products.ProductSaveCommand</node>
+    <node>edu.uark.dataaccess.repository.helpers.join.BaseJoinCriteria</node>
+    <node>edu.uark.commands.products.ProductQuery</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

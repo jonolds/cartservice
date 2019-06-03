@@ -5,8 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import edu.uark.dataaccess.repository.DatabaseTable;
 import edu.uark.dataaccess.repository.helpers.SQLSortOrder;
 
-public class OrderByContainer
-{
+public class OrderByContainer {
 	private DatabaseTable orderByTable;
 	private String orderByTableName;
 	private String orderByFieldName;
@@ -33,7 +32,7 @@ public class OrderByContainer
 	}
 
 	@Override
-	public String toString() {
+	public String toString( ) {
 		if (!validate()) {
 			return StringUtils.EMPTY;
 		}
@@ -51,7 +50,7 @@ public class OrderByContainer
 		return orderByClause.toString();
 	}
 
-	private boolean validate() {
+	private boolean validate( ) {
 		boolean valid = true;
 
 		if ((orderByTable == DatabaseTable.NONE) && orderByTableName.equals(StringUtils.EMPTY)) {
@@ -67,7 +66,7 @@ public class OrderByContainer
 	private static final String SPACE = " ";
 	private static final String TABLE_FIELD_SEPARATOR = ".";
 
-	public OrderByContainer() {
+	public OrderByContainer( ) {
 		orderByTable = DatabaseTable.NONE;
 		orderByTableName = StringUtils.EMPTY;
 		orderByFieldName = StringUtils.EMPTY;

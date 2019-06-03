@@ -12,8 +12,7 @@ import edu.uark.models.entities.ProductEntity;
 import edu.uark.models.entities.fieldnames.ProductFieldNames;
 import edu.uark.models.repositories.interfaces.ProductRepositoryInterface;
 
-public class ProductRepository extends BaseRepository<ProductEntity> implements ProductRepositoryInterface
-{
+public class ProductRepository extends BaseRepository<ProductEntity> implements ProductRepositoryInterface {
 	@Override
 	public ProductEntity byLookupCode(String lookupCode) {
 		return this.firstOrDefaultWhere(
@@ -23,19 +22,17 @@ public class ProductRepository extends BaseRepository<ProductEntity> implements 
 				(ps) -> {
 					try {
 						ps.setObject(1, lookupCode.toLowerCase());
-					} catch (SQLException e) {
-					}
-
+					} catch (SQLException e) { }
 					return ps;
 				});
 	}
 
 	@Override
-	public ProductEntity createOne() {
+	public ProductEntity createOne( ) {
 		return new ProductEntity();
 	}
 
-	public ProductRepository() {
+	public ProductRepository( ) {
 		super(DatabaseTable.PRODUCT);
 	}
 }

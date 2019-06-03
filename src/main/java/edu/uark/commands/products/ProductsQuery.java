@@ -8,10 +8,9 @@ import edu.uark.models.api.ProductListing;
 import edu.uark.models.repositories.ProductRepository;
 import edu.uark.models.repositories.interfaces.ProductRepositoryInterface;
 
-public class ProductsQuery implements ResultCommandInterface<ProductListing>
-{
+public class ProductsQuery implements ResultCommandInterface<ProductListing> {
 	@Override
-	public ProductListing execute() {
+	public ProductListing execute( ) {
 		return (new ProductListing()).setProducts(
 				this.productRepository.all().stream().map(mp -> (new Product(mp))).collect(Collectors.toList()));
 	}
@@ -19,7 +18,7 @@ public class ProductsQuery implements ResultCommandInterface<ProductListing>
 	// Properties
 	private ProductRepositoryInterface productRepository;
 
-	public ProductRepositoryInterface getProductRepository() {
+	public ProductRepositoryInterface getProductRepository( ) {
 		return this.productRepository;
 	}
 
@@ -28,7 +27,7 @@ public class ProductsQuery implements ResultCommandInterface<ProductListing>
 		return this;
 	}
 
-	public ProductsQuery() {
+	public ProductsQuery( ) {
 		this.productRepository = new ProductRepository();
 	}
 }

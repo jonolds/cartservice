@@ -7,8 +7,7 @@ import edu.uark.dataaccess.repository.helpers.PostgreFunctionType;
 import edu.uark.dataaccess.repository.helpers.SQLComparisonType;
 import edu.uark.dataaccess.repository.helpers.SQLConditionalType;
 
-public class WhereClause
-{
+public class WhereClause {
 	private SQLConditionalType conditional;
 	private DatabaseTable table;
 	private String tableName;
@@ -47,7 +46,7 @@ public class WhereClause
 	}
 
 	@Override
-	public String toString() {
+	public String toString( ) {
 		if (StringUtils.isBlank(tableName) && (table != DatabaseTable.NONE)) {
 			tableName = table.getLabel();
 		}
@@ -115,7 +114,7 @@ public class WhereClause
 	private static final String TABLE_FIELD_SEPARATOR = ".";
 	private static final String PARAMETER_PLACEHOLDER = "?";
 
-	public WhereClause() {
+	public WhereClause( ) {
 		conditional = SQLConditionalType.NONE;
 		postgreFunction = PostgreFunctionType.NONE;
 		table = DatabaseTable.NONE;

@@ -7,17 +7,16 @@ import edu.uark.models.api.Product;
 import edu.uark.models.repositories.ProductRepository;
 import edu.uark.models.repositories.interfaces.ProductRepositoryInterface;
 
-public class ProductQuery implements ResultCommandInterface<Product>
-{
+public class ProductQuery implements ResultCommandInterface<Product> {
 	@Override
-	public Product execute() {
+	public Product execute( ) {
 		return new Product(this.productRepository.get(this.productId));
 	}
 
 	// Properties
 	private UUID productId;
 
-	public UUID getProductId() {
+	public UUID getProductId( ) {
 		return this.productId;
 	}
 
@@ -28,7 +27,7 @@ public class ProductQuery implements ResultCommandInterface<Product>
 
 	private ProductRepositoryInterface productRepository;
 
-	public ProductRepositoryInterface getProductRepository() {
+	public ProductRepositoryInterface getProductRepository( ) {
 		return this.productRepository;
 	}
 
@@ -37,7 +36,7 @@ public class ProductQuery implements ResultCommandInterface<Product>
 		return this;
 	}
 
-	public ProductQuery() {
+	public ProductQuery( ) {
 		this.productRepository = new ProductRepository();
 	}
 }

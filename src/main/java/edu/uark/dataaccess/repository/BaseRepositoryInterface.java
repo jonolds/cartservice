@@ -7,17 +7,16 @@ import java.util.function.Consumer;
 
 import edu.uark.dataaccess.entities.BaseEntity;
 
-public interface BaseRepositoryInterface<T extends BaseEntity<T>>
-{
-	int count();
+public interface BaseRepositoryInterface<T extends BaseEntity<T>> {
+	int count( );
 
 	T get(UUID id);
 
-	Collection<T> all();
+	Collection<T> all( );
 
 	boolean exists(UUID id);
 
-	String getPrimaryTableName();
+	String getPrimaryTableName( );
 
 	void saveMany(Collection<T> allToSave);
 

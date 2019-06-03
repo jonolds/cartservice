@@ -15,24 +15,22 @@ import org.apache.commons.lang3.StringUtils;
 
 import edu.uark.dataaccess.repository.BaseRepositoryInterface;
 
-public abstract class BaseEntity<T extends BaseEntity<T>>
-{
+public abstract class BaseEntity<T extends BaseEntity<T>> {
 	protected UUID id;
+	protected boolean isNew;
+	protected boolean isDirty;
 
-	public UUID getId() {
+	public UUID getId( ) {
 		return this.id;
 	}
 
 	public BaseEntity<T> setId(UUID id) {
 		this.id = id;
 		this.onIdSet();
-
 		return this;
 	}
 
-	protected boolean isNew;
-
-	protected boolean getIsNew() {
+	protected boolean getIsNew( ) {
 		return this.isNew;
 	}
 
@@ -40,9 +38,7 @@ public abstract class BaseEntity<T extends BaseEntity<T>>
 		this.isNew = isNew;
 	}
 
-	protected boolean isDirty;
-
-	protected boolean getIsDirty() {
+	protected boolean getIsDirty( ) {
 		return this.isDirty;
 	}
 
@@ -51,16 +47,14 @@ public abstract class BaseEntity<T extends BaseEntity<T>>
 	}
 
 	protected void propertyChanged(String fieldName) {
-		if (!isDirty) {
-			this.isDirty = true;
-		}
+		this.isDirty = true;
 
 		if (this.toUpdateFieldNames.indexOf(fieldName) < 0) {
 			this.toUpdateFieldNames.add(fieldName);
 		}
 	}
 
-	public boolean hasChanged() {
+	public boolean hasChanged( ) {
 		return (this.isNew || (this.isDirty && (this.toUpdateFieldNames.size() > 0)));
 	}
 
@@ -75,17 +69,14 @@ public abstract class BaseEntity<T extends BaseEntity<T>>
 		this.isDirty = false;
 
 		this.id = ((UUID) rs.getObject(BaseFieldNames.ID));
-
 		this.fillFromRecord(rs);
 	}
 
-	protected void onIdSet() {
-	}
+	protected void onIdSet( ) { }
 
-	public void onLoadComplete() {
-	}
+	public void onLoadComplete( ) { }
 
-	public void save() {
+	public void save( ) {
 		this.repository.connectAndRun((connection) -> {
 			try {
 				if ((connection == null) || connection.isClosed()) {
@@ -168,7 +159,6 @@ public abstract class BaseEntity<T extends BaseEntity<T>>
 			ps.setObject(keyIndex++, value);
 		}
 		values.clear();
-
 		return ps;
 	}
 
@@ -187,8 +177,7 @@ public abstract class BaseEntity<T extends BaseEntity<T>>
 		ps.execute();
 	}
 
-	private PreparedStatement buildUpdateStatement(Map<String, Object> record, Connection connection)
-			throws SQLException {
+	private PreparedStatement buildUpdateStatement(Map<String, Object> record, Connection connection) throws SQLException {
 		LinkedList<Object> values = new LinkedList<Object>();
 		StringBuilder updateBuilder = new StringBuilder(
 				String.format(UPDATE_PREAMBLE, this.repository.getPrimaryTableName()));
@@ -219,7 +208,7 @@ public abstract class BaseEntity<T extends BaseEntity<T>>
 
 	private static final String DELETE_COMMAND_FORMAT = "DELETE FROM %s WHERE %s = ?";
 
-	public void delete() {
+	public void delete( ) {
 		if (this.isNew) {
 			return;
 		}
@@ -258,6 +247,7 @@ public abstract class BaseEntity<T extends BaseEntity<T>>
 		this.repository.connectAndRun(action);
 	}
 
+	//HasChanged methods - BOOLEAN return value
 	protected boolean stringHasChanged(String one, String two) {
 		return !StringUtils.equals(one, two);
 	}
@@ -285,42 +275,30 @@ public abstract class BaseEntity<T extends BaseEntity<T>>
 				}
 			}
 		}
-
 		return changed;
 	}
 
 	@Override
-	public int hashCode() {
+	public int hashCode( ) {
 		int result = 1;
 		final int prime = 31;
-
 		return ((prime * result) + ((this.id == null) ? 0 : this.id.hashCode()));
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj) {
+		if (this == obj)
 			return true;
-		}
-
-		if (obj == null) {
+		if (obj == null)
 			return false;
-		}
 
-		if (getClass() != obj.getClass()) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
 
 		BaseEntity<?> other = ((BaseEntity<?>) obj);
 		if (this.id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else if (!this.id.equals(other.id)) {
-			return false;
-		}
-
-		return true;
+			return other.id == null;
+		} else return this.id.equals(other.id);
 	}
 
 	protected BaseEntity(BaseRepositoryInterface<T> repository) {
@@ -330,11 +308,9 @@ public abstract class BaseEntity<T extends BaseEntity<T>>
 	protected BaseEntity(UUID id, BaseRepositoryInterface<T> repository) {
 		this.isNew = true;
 		this.isDirty = true;
-
 		this.id = id;
 		this.repository = repository;
 		this.toUpdateFieldNames = new LinkedList<String>();
-
 		this.onIdSet();
 	}
 }

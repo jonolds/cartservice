@@ -6,7 +6,7 @@ import java.util.Map;
 public enum ProductApiRequestStatus {
 	OK(0), INVALID_INPUT(1), UNKNOWN_ERROR(2), NOT_FOUND(3), LOOKUP_CODE_ALREADY_EXISTS(4);
 
-	public int getValue() {
+	public int getValue( ) {
 		return value;
 	}
 
@@ -26,7 +26,7 @@ public enum ProductApiRequestStatus {
 
 	private static Map<Integer, ProductApiRequestStatus> valueMap = null;
 
-	private ProductApiRequestStatus(int value) {
+	ProductApiRequestStatus(int value) {
 		this.value = value;
 	}
 }

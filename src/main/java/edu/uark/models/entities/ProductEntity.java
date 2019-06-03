@@ -14,8 +14,7 @@ import edu.uark.models.api.Product;
 import edu.uark.models.entities.fieldnames.ProductFieldNames;
 import edu.uark.models.repositories.ProductRepository;
 
-public class ProductEntity extends BaseEntity<ProductEntity>
-{
+public class ProductEntity extends BaseEntity<ProductEntity> {
 	@Override
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
 		this.lookupCode = rs.getString(ProductFieldNames.LOOKUP_CODE);
@@ -34,7 +33,7 @@ public class ProductEntity extends BaseEntity<ProductEntity>
 
 	private String lookupCode;
 
-	public String getLookupCode() {
+	public String getLookupCode( ) {
 		return this.lookupCode;
 	}
 
@@ -49,7 +48,7 @@ public class ProductEntity extends BaseEntity<ProductEntity>
 
 	private int count;
 
-	public int getCount() {
+	public int getCount( ) {
 		return this.count;
 	}
 
@@ -64,7 +63,7 @@ public class ProductEntity extends BaseEntity<ProductEntity>
 
 	private LocalDateTime createdOn;
 
-	public LocalDateTime getCreatedOn() {
+	public LocalDateTime getCreatedOn( ) {
 		return this.createdOn;
 	}
 
@@ -77,7 +76,7 @@ public class ProductEntity extends BaseEntity<ProductEntity>
 		return apiProduct;
 	}
 
-	public ProductEntity() {
+	public ProductEntity( ) {
 		super(new ProductRepository());
 
 		this.count = -1;

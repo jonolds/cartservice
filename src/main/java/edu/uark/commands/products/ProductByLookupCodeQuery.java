@@ -9,10 +9,9 @@ import edu.uark.models.entities.ProductEntity;
 import edu.uark.models.repositories.ProductRepository;
 import edu.uark.models.repositories.interfaces.ProductRepositoryInterface;
 
-public class ProductByLookupCodeQuery implements ResultCommandInterface<Product>
-{
+public class ProductByLookupCodeQuery implements ResultCommandInterface<Product> {
 	@Override
-	public Product execute() {
+	public Product execute( ) {
 		if (StringUtils.isBlank(this.lookupCode)) {
 			return new Product().setApiRequestStatus(ProductApiRequestStatus.INVALID_INPUT);
 		}
@@ -28,7 +27,7 @@ public class ProductByLookupCodeQuery implements ResultCommandInterface<Product>
 	// Properties
 	private String lookupCode;
 
-	public String getLookupCode() {
+	public String getLookupCode( ) {
 		return this.lookupCode;
 	}
 
@@ -39,7 +38,7 @@ public class ProductByLookupCodeQuery implements ResultCommandInterface<Product>
 
 	private ProductRepositoryInterface productRepository;
 
-	public ProductRepositoryInterface getProductRepository() {
+	public ProductRepositoryInterface getProductRepository( ) {
 		return this.productRepository;
 	}
 
@@ -48,7 +47,7 @@ public class ProductByLookupCodeQuery implements ResultCommandInterface<Product>
 		return this;
 	}
 
-	public ProductByLookupCodeQuery() {
+	public ProductByLookupCodeQuery( ) {
 		this.productRepository = new ProductRepository();
 	}
 }

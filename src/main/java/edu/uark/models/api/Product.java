@@ -8,11 +8,10 @@ import org.apache.commons.lang3.StringUtils;
 import edu.uark.models.api.enums.ProductApiRequestStatus;
 import edu.uark.models.entities.ProductEntity;
 
-public class Product
-{
+public class Product {
 	private UUID id;
 
-	public UUID getId() {
+	public UUID getId( ) {
 		return this.id;
 	}
 
@@ -23,7 +22,7 @@ public class Product
 
 	private String lookupCode;
 
-	public String getLookupCode() {
+	public String getLookupCode( ) {
 		return this.lookupCode;
 	}
 
@@ -34,7 +33,7 @@ public class Product
 
 	private int count;
 
-	public int getCount() {
+	public int getCount( ) {
 		return this.count;
 	}
 
@@ -45,7 +44,7 @@ public class Product
 
 	private LocalDateTime createdOn;
 
-	public LocalDateTime getCreatedOn() {
+	public LocalDateTime getCreatedOn( ) {
 		return this.createdOn;
 	}
 
@@ -56,7 +55,7 @@ public class Product
 
 	private ProductApiRequestStatus apiRequestStatus;
 
-	public ProductApiRequestStatus getApiRequestStatus() {
+	public ProductApiRequestStatus getApiRequestStatus( ) {
 		return this.apiRequestStatus;
 	}
 
@@ -70,7 +69,7 @@ public class Product
 
 	private String apiRequestMessage;
 
-	public String getApiRequestMessage() {
+	public String getApiRequestMessage( ) {
 		return this.apiRequestMessage;
 	}
 
@@ -82,7 +81,7 @@ public class Product
 		return this;
 	}
 
-	public Product() {
+	public Product( ) {
 		this.count = -1;
 		this.lookupCode = "";
 		this.id = new UUID(0, 0);

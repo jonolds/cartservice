@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>edu.uark.models.api.Product</OriginalElement>
+  <nodes>
+    <node x="0.0" y="3296.0">edu.uark.commands.products.ProductByLookupCodeQuery</node>
+    <node x="919.1157823281368" y="0.0">edu.uark.dataaccess.repository.BaseRepositoryInterface</node>
+    <node x="403.542638054774" y="771.5">edu.uark.models.entities.fieldnames.ProductFieldNames</node>
+    <node x="1212.041330980067" y="2970.0">edu.uark.models.api.ProductListing</node>
+    <node x="912.0157823281368" y="2983.0">edu.uark.models.repositories.ProductRepository</node>
+    <node x="1339.2991771552088" y="3530.0">edu.uark.controllers.ProductRestController</node>
+    <node x="770.8657823281367" y="338.0">edu.uark.dataaccess.entities.BaseEntity</node>
+    <node x="1451.041330980067" y="3007.5">edu.uark.commands.ResultCommandInterface</node>
+    <node x="1238.1907823281367" y="11.0">edu.uark.models.api.enums.ProductApiRequestStatus</node>
+    <node x="414.042638054774" y="108.5">edu.uark.dataaccess.entities.BaseFieldNames</node>
+    <node x="130.2902485837801" y="1768.0">edu.uark.dataaccess.repository.BaseRepository</node>
+    <node x="1087.5848214285716" y="2273.5">edu.uark.models.repositories.interfaces.ProductRepositoryInterface</node>
+    <node x="1305.8784111721611" y="638.5">edu.uark.models.api.Product</node>
+    <node x="915.0848214285716" y="1414.0">edu.uark.models.entities.ProductEntity</node>
+    <node x="1391.3581142452501" y="3296.0">edu.uark.commands.products.ProductQuery</node>
+    <node x="1756.3104251852797" y="3296.0">edu.uark.commands.products.ProductSaveCommand</node>
+    <node x="642.0657823281367" y="1498.5">edu.uark.dataaccess.repository.DatabaseTable</node>
+    <node x="1013.0908438218751" y="3320.0">edu.uark.commands.products.ProductsQuery</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="edu.uark.commands.products.ProductQuery" target="edu.uark.commands.ResultCommandInterface">
+      <point x="-70.75" y="-87.0" />
+      <point x="1462.1081142452501" y="3236.0" />
+      <point x="1565.416330980067" y="3236.0" />
+      <point x="22.875" y="25.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductsQuery" target="edu.uark.models.repositories.ProductRepository">
+      <point x="-40.428571428571104" y="-63.0" />
+      <point x="1114.162272393304" y="3166.0" />
+      <point x="995.2657823281368" y="3166.0" />
+      <point x="-27.75" y="50.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductsQuery" target="edu.uark.commands.ResultCommandInterface">
+      <point x="121.28571428571445" y="-63.0" />
+      <point x="1275.8765581075895" y="3226.0" />
+      <point x="1519.666330980067" y="3226.0" />
+      <point x="-22.875" y="25.5" />
+    </edge>
+    <edge source="edu.uark.controllers.ProductRestController" target="edu.uark.commands.products.ProductQuery">
+      <point x="21.166666666666742" y="-86.0" />
+      <point x="1487.4658438218753" y="3490.0" />
+      <point x="1532.8581142452501" y="3490.0" />
+      <point x="0.0" y="87.0" />
+    </edge>
+    <edge source="edu.uark.models.repositories.ProductRepository" target="edu.uark.models.entities.fieldnames.ProductFieldNames">
+      <point x="-97.125" y="-50.0" />
+      <point x="925.8907823281368" y="2890.0" />
+      <point x="119.79024858378011" y="2890.0" />
+      <point x="119.79024858378011" y="1334.0" />
+      <point x="440.542638054774" y="1334.0" />
+      <point x="-37.0" y="49.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductsQuery" target="edu.uark.models.api.ProductListing">
+      <point x="80.85714285714289" y="-63.0" />
+      <point x="1235.447986679018" y="3206.0" />
+      <point x="1321.541330980067" y="3206.0" />
+      <point x="0.0" y="63.0" />
+    </edge>
+    <edge source="edu.uark.controllers.ProductRestController" target="edu.uark.models.api.Product">
+      <point x="105.83333333333326" y="-86.0" />
+      <point x="1572.1325104885418" y="3510.0" />
+      <point x="2049.8104251852797" y="3510.0" />
+      <point x="2049.8104251852797" y="1344.0" />
+      <point x="1557.801488095238" y="1344.0" />
+      <point x="120.9230769230769" y="182.5" />
+    </edge>
+    <edge source="edu.uark.models.entities.ProductEntity" target="edu.uark.models.entities.fieldnames.ProductFieldNames">
+      <point x="-130.79999999999995" y="-147.0" />
+      <point x="947.7848214285716" y="1324.0" />
+      <point x="514.542638054774" y="1324.0" />
+      <point x="37.0" y="49.5" />
+    </edge>
+    <edge source="edu.uark.models.repositories.ProductRepository" target="edu.uark.dataaccess.repository.DatabaseTable">
+      <point x="-13.875" y="-50.0" />
+      <point x="1009.1407823281368" y="2860.0" />
+      <point x="919.542638054774" y="2860.0" />
+      <point x="919.542638054774" y="1728.0" />
+      <point x="762.89911566147" y="1728.0" />
+      <point x="48.33333333333326" y="62.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductQuery" target="edu.uark.models.repositories.ProductRepository">
+      <point x="-117.91666666666674" y="-87.0" />
+      <point x="1414.9414475785834" y="3156.0" />
+      <point x="1050.7657823281368" y="3156.0" />
+      <point x="27.75" y="50.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductByLookupCodeQuery" target="edu.uark.models.entities.ProductEntity">
+      <point x="-17.6875" y="-87.0" />
+      <point x="123.8125" y="3266.0" />
+      <point x="87.25" y="3266.0" />
+      <point x="87.25" y="2910.0" />
+      <point x="908.542638054774" y="2910.0" />
+      <point x="908.542638054774" y="1738.0" />
+      <point x="938.4419642857144" y="1738.0" />
+      <point x="-140.1428571428571" y="147.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductSaveCommand" target="edu.uark.models.entities.ProductEntity">
+      <point x="14.149999999999977" y="-87.0" />
+      <point x="1911.9604251852795" y="3276.0" />
+      <point x="1931.6104251852796" y="3276.0" />
+      <point x="1931.6104251852796" y="1738.0" />
+      <point x="1218.7276785714287" y="1738.0" />
+      <point x="140.1428571428571" y="147.0" />
+    </edge>
+    <edge source="edu.uark.dataaccess.repository.BaseRepository" target="edu.uark.dataaccess.entities.BaseFieldNames">
+      <point x="-292.4" y="-531.0" />
+      <point x="203.39024858378014" y="1728.0" />
+      <point x="393.042638054774" y="1728.0" />
+      <point x="393.042638054774" y="308.0" />
+      <point x="435.2093047214406" y="308.0" />
+      <point x="-42.33333333333337" y="25.5" />
+    </edge>
+    <edge source="edu.uark.controllers.ProductRestController" target="edu.uark.models.api.ProductListing">
+      <point x="-21.166666666666742" y="-86.0" />
+      <point x="1445.1325104885418" y="3490.0" />
+      <point x="1338.1497809119167" y="3490.0" />
+      <point x="1338.1497809119167" y="3206.0" />
+      <point x="1394.541330980067" y="3206.0" />
+      <point x="73.0" y="63.0" />
+    </edge>
+    <edge source="edu.uark.controllers.ProductRestController" target="edu.uark.commands.products.ProductsQuery">
+      <point x="-63.5" y="-86.0" />
+      <point x="1402.7991771552088" y="3500.0" />
+      <point x="1154.590843821875" y="3500.0" />
+      <point x="0.0" y="63.0" />
+    </edge>
+    <edge source="edu.uark.dataaccess.repository.BaseRepository" target="edu.uark.dataaccess.entities.BaseEntity">
+      <point x="0.0" y="-531.0" />
+      <point x="495.7902485837801" y="1748.0" />
+      <point x="573.042638054774" y="1748.0" />
+      <point x="573.042638054774" y="1334.0" />
+      <point x="847.8657823281367" y="1334.0" />
+      <point x="-154.0" y="483.0" />
+    </edge>
+    <edge source="edu.uark.models.entities.ProductEntity" target="edu.uark.dataaccess.entities.BaseEntity">
+      <point x="-65.39999999999998" y="-147.0" />
+      <point x="1013.1848214285715" y="1334.0" />
+      <point x="1001.8657823281367" y="1334.0" />
+      <point x="0.0" y="483.0" />
+    </edge>
+    <edge source="edu.uark.dataaccess.repository.BaseRepository" target="edu.uark.dataaccess.repository.DatabaseTable">
+      <point x="292.4" y="-531.0" />
+      <point x="788.1902485837801" y="1748.0" />
+      <point x="714.5657823281367" y="1748.0" />
+      <point x="0.0" y="62.5" />
+    </edge>
+    <edge source="edu.uark.dataaccess.repository.BaseRepository" target="edu.uark.dataaccess.repository.BaseRepositoryInterface">
+      <point x="-146.20000000000005" y="-531.0" />
+      <point x="349.59024858378007" y="1738.0" />
+      <point x="562.042638054774" y="1738.0" />
+      <point x="562.042638054774" y="298.0" />
+      <point x="947.2157823281368" y="298.0" />
+      <point x="-112.39999999999998" y="134.0" />
+    </edge>
+    <edge source="edu.uark.models.repositories.ProductRepository" target="edu.uark.models.repositories.interfaces.ProductRepositoryInterface">
+      <point x="97.125" y="-50.0" />
+      <point x="1120.1407823281368" y="2950.0" />
+      <point x="1173.9181547619048" y="2950.0" />
+      <point x="-24.666666666666742" y="25.5" />
+    </edge>
+    <edge source="edu.uark.models.entities.ProductEntity" target="edu.uark.models.api.Product">
+      <point x="65.39999999999998" y="-147.0" />
+      <point x="1143.9848214285714" y="1374.0" />
+      <point x="1376.4168727106226" y="1374.0" />
+      <point x="-60.46153846153857" y="182.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductSaveCommand" target="edu.uark.models.repositories.interfaces.ProductRepositoryInterface">
+      <point x="-70.75" y="-87.0" />
+      <point x="1827.0604251852797" y="3126.0" />
+      <point x="1732.419307170543" y="3126.0" />
+      <point x="1732.419307170543" y="2910.0" />
+      <point x="1272.5848214285716" y="2910.0" />
+      <point x="74.0" y="25.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductSaveCommand" target="edu.uark.models.api.Product">
+      <point x="99.04999999999995" y="-87.0" />
+      <point x="1996.8604251852794" y="3266.0" />
+      <point x="1964.6104251852796" y="3266.0" />
+      <point x="1964.6104251852796" y="1354.0" />
+      <point x="1537.6476419413918" y="1354.0" />
+      <point x="100.76923076923072" y="182.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductSaveCommand" target="edu.uark.commands.ResultCommandInterface">
+      <point x="-99.05000000000007" y="-87.0" />
+      <point x="1798.7604251852795" y="3136.0" />
+      <point x="1611.166330980067" y="3136.0" />
+      <point x="68.625" y="25.5" />
+    </edge>
+    <edge source="edu.uark.models.repositories.ProductRepository" target="edu.uark.models.entities.ProductEntity">
+      <point x="69.375" y="-50.0" />
+      <point x="1092.3907823281368" y="2900.0" />
+      <point x="1067.2657823281368" y="2900.0" />
+      <point x="1067.2657823281368" y="1748.0" />
+      <point x="1078.5848214285716" y="1748.0" />
+      <point x="0.0" y="147.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductSaveCommand" target="edu.uark.models.api.enums.ProductApiRequestStatus">
+      <point x="127.35000000000002" y="-87.0" />
+      <point x="2025.1604251852796" y="3256.0" />
+      <point x="1975.6104251852796" y="3256.0" />
+      <point x="1975.6104251852796" y="318.0" />
+      <point x="1511.1907823281367" y="318.0" />
+      <point x="117.0" y="123.0" />
+    </edge>
+    <edge source="edu.uark.controllers.ProductRestController" target="edu.uark.commands.products.ProductSaveCommand">
+      <point x="63.5" y="-86.0" />
+      <point x="1529.7991771552088" y="3500.0" />
+      <point x="1897.8104251852797" y="3500.0" />
+      <point x="0.0" y="87.0" />
+    </edge>
+    <edge source="edu.uark.models.entities.ProductEntity" target="edu.uark.models.repositories.ProductRepository">
+      <point x="-46.71428571428578" y="147.0" />
+      <point x="1031.8705357142858" y="1748.0" />
+      <point x="1056.2657823281368" y="1748.0" />
+      <point x="1056.2657823281368" y="2910.0" />
+      <point x="1064.6407823281368" y="2910.0" />
+      <point x="41.625" y="-50.0" />
+    </edge>
+    <edge source="edu.uark.models.api.ProductListing" target="edu.uark.models.api.Product">
+      <point x="54.75" y="-63.0" />
+      <point x="1376.291330980067" y="2950.0" />
+      <point x="1432.301488095238" y="2950.0" />
+      <point x="1432.301488095238" y="1394.0" />
+      <point x="1436.8784111721611" y="1394.0" />
+      <point x="0.0" y="182.5" />
+    </edge>
+    <edge source="edu.uark.dataaccess.entities.BaseEntity" target="edu.uark.dataaccess.repository.BaseRepositoryInterface">
+      <point x="57.75" y="-483.0" />
+      <point x="0.0" y="134.0" />
+    </edge>
+    <edge source="edu.uark.models.entities.fieldnames.ProductFieldNames" target="edu.uark.dataaccess.entities.BaseFieldNames">
+      <point x="0.0" y="-49.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductByLookupCodeQuery" target="edu.uark.models.repositories.ProductRepository">
+      <point x="88.4375" y="-87.0" />
+      <point x="229.9375" y="3206.0" />
+      <point x="939.7657823281368" y="3206.0" />
+      <point x="-83.25" y="50.0" />
+    </edge>
+    <edge source="edu.uark.models.repositories.interfaces.ProductRepositoryInterface" target="edu.uark.models.entities.ProductEntity">
+      <point x="-55.5" y="-25.5" />
+      <point x="1143.0848214285716" y="1748.0" />
+      <point x="1125.299107142857" y="1748.0" />
+      <point x="46.714285714285666" y="147.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductSaveCommand" target="edu.uark.models.repositories.ProductRepository">
+      <point x="-127.35000000000014" y="-87.0" />
+      <point x="1770.4604251852793" y="3146.0" />
+      <point x="1106.2657823281368" y="3146.0" />
+      <point x="83.25" y="50.0" />
+    </edge>
+    <edge source="edu.uark.controllers.ProductRestController" target="edu.uark.commands.products.ProductByLookupCodeQuery">
+      <point x="-105.83333333333326" y="-86.0" />
+      <point x="1360.4658438218753" y="3510.0" />
+      <point x="141.5" y="3510.0" />
+      <point x="0.0" y="87.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductByLookupCodeQuery" target="edu.uark.commands.ResultCommandInterface">
+      <point x="123.8125" y="-87.0" />
+      <point x="265.3125" y="3216.0" />
+      <point x="1473.916330980067" y="3216.0" />
+      <point x="-68.625" y="25.5" />
+    </edge>
+    <edge source="edu.uark.models.api.Product" target="edu.uark.models.api.enums.ProductApiRequestStatus">
+      <point x="-65.5" y="-182.5" />
+      <point x="1371.3784111721611" y="318.0" />
+      <point x="1355.1907823281367" y="318.0" />
+      <point x="-39.0" y="123.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductByLookupCodeQuery" target="edu.uark.models.repositories.interfaces.ProductRepositoryInterface">
+      <point x="53.0625" y="-87.0" />
+      <point x="194.5625" y="3196.0" />
+      <point x="767.417638054774" y="3196.0" />
+      <point x="767.417638054774" y="2930.0" />
+      <point x="1124.5848214285716" y="2930.0" />
+      <point x="-74.0" y="25.5" />
+    </edge>
+    <edge source="edu.uark.models.repositories.interfaces.ProductRepositoryInterface" target="edu.uark.dataaccess.repository.BaseRepositoryInterface">
+      <point x="55.5" y="-25.5" />
+      <point x="1254.0848214285716" y="298.0" />
+      <point x="1172.0157823281368" y="298.0" />
+      <point x="112.39999999999998" y="134.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductQuery" target="edu.uark.models.repositories.interfaces.ProductRepositoryInterface">
+      <point x="23.583333333333258" y="-87.0" />
+      <point x="1556.4414475785834" y="3256.0" />
+      <point x="1721.419307170543" y="3256.0" />
+      <point x="1721.419307170543" y="2920.0" />
+      <point x="1247.918154761905" y="2920.0" />
+      <point x="49.333333333333485" y="25.5" />
+    </edge>
+    <edge source="edu.uark.models.api.Product" target="edu.uark.models.entities.ProductEntity">
+      <point x="-40.30769230769238" y="182.5" />
+      <point x="1396.5707188644687" y="1384.0" />
+      <point x="1209.3848214285715" y="1384.0" />
+      <point x="130.79999999999995" y="-147.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductQuery" target="edu.uark.models.api.Product">
+      <point x="70.75" y="-87.0" />
+      <point x="1603.6081142452501" y="3266.0" />
+      <point x="1744.3741771552086" y="3266.0" />
+      <point x="1744.3741771552086" y="1394.0" />
+      <point x="1457.0322573260073" y="1394.0" />
+      <point x="20.15384615384619" y="182.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductsQuery" target="edu.uark.models.repositories.interfaces.ProductRepositoryInterface">
+      <point x="2.2737367544323206E-13" y="-63.0" />
+      <point x="1154.5908438218753" y="3206.0" />
+      <point x="1188.7657823281368" y="3206.0" />
+      <point x="1188.7657823281368" y="2950.0" />
+      <point x="1198.5848214285716" y="2950.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductsQuery" target="edu.uark.models.api.Product">
+      <point x="-121.285714285714" y="-63.0" />
+      <point x="1033.305129536161" y="3186.0" />
+      <point x="242.3777951699451" y="3186.0" />
+      <point x="242.3777951699451" y="2900.0" />
+      <point x="108.79024858378011" y="2900.0" />
+      <point x="108.79024858378011" y="1364.0" />
+      <point x="1356.2630265567766" y="1364.0" />
+      <point x="-80.61538461538453" y="182.5" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductByLookupCodeQuery" target="edu.uark.models.api.Product">
+      <point x="-53.0625" y="-87.0" />
+      <point x="88.4375" y="3276.0" />
+      <point x="76.25" y="3276.0" />
+      <point x="76.25" y="1354.0" />
+      <point x="1336.1091804029304" y="1354.0" />
+      <point x="-100.76923076923072" y="182.5" />
+    </edge>
+    <edge source="edu.uark.dataaccess.entities.BaseEntity" target="edu.uark.dataaccess.entities.BaseFieldNames">
+      <point x="-173.25" y="-483.0" />
+      <point x="828.6157823281367" y="288.0" />
+      <point x="519.8759713881074" y="288.0" />
+      <point x="42.33333333333334" y="25.5" />
+    </edge>
+    <edge source="edu.uark.dataaccess.repository.BaseRepositoryInterface" target="edu.uark.dataaccess.entities.BaseEntity">
+      <point x="56.200000000000045" y="134.0" />
+      <point x="1115.8157823281367" y="308.0" />
+      <point x="1175.1157823281367" y="308.0" />
+      <point x="173.25" y="-483.0" />
+    </edge>
+    <edge source="edu.uark.models.repositories.ProductRepository" target="edu.uark.dataaccess.repository.BaseRepository">
+      <point x="-41.625" y="-50.0" />
+      <point x="981.3907823281368" y="2870.0" />
+      <point x="678.5402485837801" y="2870.0" />
+      <point x="182.75" y="531.0" />
+    </edge>
+    <edge source="edu.uark.commands.products.ProductByLookupCodeQuery" target="edu.uark.models.api.enums.ProductApiRequestStatus">
+      <point x="-123.8125" y="-87.0" />
+      <point x="17.6875" y="3266.0" />
+      <point x="54.25" y="3266.0" />
+      <point x="54.25" y="318.0" />
+      <point x="1277.1907823281367" y="318.0" />
+      <point x="-117.0" y="123.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.18350349274583558" x="1025.0" y="1851.0" />
+  <SelectedNodes>
+    <node>edu.uark.commands.products.ProductByLookupCodeQuery</node>
+    <node>edu.uark.dataaccess.repository.BaseRepositoryInterface</node>
+    <node>edu.uark.models.entities.fieldnames.ProductFieldNames</node>
+    <node>edu.uark.models.api.ProductListing</node>
+    <node>edu.uark.models.repositories.ProductRepository</node>
+    <node>edu.uark.controllers.ProductRestController</node>
+    <node>edu.uark.dataaccess.entities.BaseEntity</node>
+    <node>edu.uark.commands.ResultCommandInterface</node>
+    <node>edu.uark.models.api.enums.ProductApiRequestStatus</node>
+    <node>edu.uark.dataaccess.entities.BaseFieldNames</node>
+    <node>edu.uark.dataaccess.repository.BaseRepository</node>
+    <node>edu.uark.models.repositories.interfaces.ProductRepositoryInterface</node>
+    <node>edu.uark.models.api.Product</node>
+    <node>edu.uark.models.entities.ProductEntity</node>
+    <node>edu.uark.commands.products.ProductQuery</node>
+    <node>edu.uark.commands.products.ProductSaveCommand</node>
+    <node>edu.uark.dataaccess.repository.DatabaseTable</node>
+    <node>edu.uark.commands.products.ProductsQuery</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
