@@ -1,42 +1,41 @@
 //package edu.uark.controllers;
 //
-//import edu.uark.commands.products.ProductByLookupCodeQuery;
-//import edu.uark.commands.products.ProductQuery;
-//import edu.uark.commands.products.ProductSaveCommand;
-//import edu.uark.commands.products.ProductsQuery;
-//import edu.uark.models.api.Product;
-//import edu.uark.models.api.ProductListing;
-//import org.springframework.web.bind.annotation.*;
-//
 //import java.util.UUID;
+//
+//import org.springframework.web.bind.annotation.PathVariable;
+//import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.ResponseBody;
+//import org.springframework.web.bind.annotation.RestController;
 //
 //@RestController
 //@RequestMapping(value = "/employee")
 //public class EmployeeRestController
 //{
-//	@RequestMapping(value = "/apiv0/{productId}", method = RequestMethod.GET)
-//	public Product getProduct(@PathVariable UUID productId) {
-//		return (new ProductQuery()).setProductId(productId).execute();
+//	@RequestMapping(value = "/apiv0/{employeeId}", method = RequestMethod.GET)
+//	public Employee getEmployee(@PathVariable UUID employeeId) {
+//		return (new EmployeeQuery()).setEmployeeId(employeeId).execute();
 //	}
 //
-//	@RequestMapping(value = "/apiv0/byLookupCode/{productLookupCode}", method = RequestMethod.GET)
-//	public Product getProductByLookupCode(@PathVariable String productLookupCode) {
-//		return (new ProductByLookupCodeQuery()).setLookupCode(productLookupCode).execute();
+//	@RequestMapping(value = "/apiv0/byLookupCode/{employeeLookupCode}", method = RequestMethod.GET)
+//	public Employee getEmployeeByLookupCode(@PathVariable String employeeLookupCode) {
+//		return (new EmployeeByLookupCodeQuery()).setLookupCode(employeeLookupCode).execute();
 //	}
 //
-//	@RequestMapping(value = "/apiv0/products", method = RequestMethod.GET)
-//	public ProductListing getProducts() {
-//		return (new ProductsQuery()).execute();
+//	@RequestMapping(value = "/apiv0/employees", method = RequestMethod.GET)
+//	public EmployeeListing getEmployees() {
+//		return (new EmployeesQuery()).execute();
 //	}
 //
 //	@RequestMapping(value = "/apiv0/", method = RequestMethod.PUT)
-//	public Product putActivity(@RequestBody Product product) {
-//		return (new ProductSaveCommand()).setApiProduct(product).execute();
+//	public Employee putActivity(@RequestBody Employee employee) {
+//		return (new EmployeeSaveCommand()).setApiEmployee(employee).execute();
 //	}
 //
 //	@ResponseBody
 //	@RequestMapping(value = "/test", method = RequestMethod.GET)
 //	public String test() {
-//		return "Things are cool";
+//		return "EMPLOYEE - Things are cool";
 //	}
 //}

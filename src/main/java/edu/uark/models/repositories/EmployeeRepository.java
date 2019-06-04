@@ -1,6 +1,8 @@
 package edu.uark.models.repositories;
 
-//Started on 9-27. Roughly 10 minutes - Skyler
-public class EmployeeRepository {
+import edu.uark.dataaccess.repository.BaseRepositoryInterface;
+import edu.uark.models.entities.EmployeeEntity;
 
+public interface EmployeeRepository extends BaseRepositoryInterface<EmployeeEntity>{
+	// TODO Auto-generated constructor stub
 }

@@ -12,6 +12,11 @@ import edu.uark.models.repositories.ProductRepository;
 import edu.uark.models.repositories.interfaces.ProductRepositoryInterface;
 
 public class ProductSaveCommand implements ResultCommandInterface<Product> {
+	
+	public ProductSaveCommand( ) {
+		this.productRepository = new ProductRepository();
+	}
+	
 	@Override
 	public Product execute( ) {
 		if (StringUtils.isBlank(this.apiProduct.getLookupCode())) {
@@ -34,34 +39,26 @@ public class ProductSaveCommand implements ResultCommandInterface<Product> {
 		if ((new UUID(0, 0)).equals(this.apiProduct.getId())) {
 			this.apiProduct.setId(productEntity.getId());
 		}
-
+		
 		return this.apiProduct;
 	}
 
 	// Properties
 	private Product apiProduct;
-
 	public Product getApiProduct( ) {
 		return this.apiProduct;
 	}
-
 	public ProductSaveCommand setApiProduct(Product apiProduct) {
 		this.apiProduct = apiProduct;
 		return this;
 	}
 
 	private ProductRepositoryInterface productRepository;
-
 	public ProductRepositoryInterface getProductRepository( ) {
 		return this.productRepository;
 	}
-
 	public ProductSaveCommand setProductRepository(ProductRepositoryInterface productRepository) {
 		this.productRepository = productRepository;
 		return this;
-	}
-
-	public ProductSaveCommand( ) {
-		this.productRepository = new ProductRepository();
 	}
 }

@@ -9,6 +9,10 @@ import edu.uark.models.repositories.ProductRepository;
 import edu.uark.models.repositories.interfaces.ProductRepositoryInterface;
 
 public class ProductsQuery implements ResultCommandInterface<ProductListing> {
+	public ProductsQuery( ) {
+		this.productRepository = new ProductRepository();
+	}
+	
 	@Override
 	public ProductListing execute( ) {
 		return (new ProductListing()).setProducts(
@@ -17,17 +21,11 @@ public class ProductsQuery implements ResultCommandInterface<ProductListing> {
 
 	// Properties
 	private ProductRepositoryInterface productRepository;
-
 	public ProductRepositoryInterface getProductRepository( ) {
 		return this.productRepository;
 	}
-
 	public ProductsQuery setProductRepository(ProductRepositoryInterface productRepository) {
 		this.productRepository = productRepository;
 		return this;
-	}
-
-	public ProductsQuery( ) {
-		this.productRepository = new ProductRepository();
 	}
 }
