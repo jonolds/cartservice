@@ -4,13 +4,11 @@ public enum DatabaseTable {
 	NONE(""),
 	PRODUCT("product");
 
-	public String getLabel( ) {
-		return label;
-	}
-
 	private final String label;
-
 	DatabaseTable(String label) {
 		this.label = label;
+	}
+	public String getLabel( ) {
+		return label;
 	}
 }

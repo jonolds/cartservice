@@ -20,10 +20,21 @@ public abstract class BaseEntity<T extends BaseEntity<T>> {
 	protected boolean isNew;
 	protected boolean isDirty;
 
+	protected BaseEntity(BaseRepositoryInterface<T> repository) {
+		this((new UUID(0, 0)), repository);
+	}
+	protected BaseEntity(UUID id, BaseRepositoryInterface<T> repository) {
+		this.isNew = true;
+		this.isDirty = true;
+		this.id = id;
+		this.repository = repository;
+		this.toUpdateFieldNames = new LinkedList<String>();
+		this.onIdSet();
+	}
+	
 	public UUID getId( ) {
 		return this.id;
 	}
-
 	public BaseEntity<T> setId(UUID id) {
 		this.id = id;
 		this.onIdSet();
@@ -33,7 +44,6 @@ public abstract class BaseEntity<T extends BaseEntity<T>> {
 	protected boolean getIsNew( ) {
 		return this.isNew;
 	}
-
 	protected void setIsNew(boolean isNew) {
 		this.isNew = isNew;
 	}
@@ -41,7 +51,6 @@ public abstract class BaseEntity<T extends BaseEntity<T>> {
 	protected boolean getIsDirty( ) {
 		return this.isDirty;
 	}
-
 	protected void setIsDirty(boolean isDirty) {
 		this.isDirty = isDirty;
 	}
@@ -299,18 +308,5 @@ public abstract class BaseEntity<T extends BaseEntity<T>> {
 		if (this.id == null) {
 			return other.id == null;
 		} else return this.id.equals(other.id);
-	}
-
-	protected BaseEntity(BaseRepositoryInterface<T> repository) {
-		this((new UUID(0, 0)), repository);
-	}
-
-	protected BaseEntity(UUID id, BaseRepositoryInterface<T> repository) {
-		this.isNew = true;
-		this.isDirty = true;
-		this.id = id;
-		this.repository = repository;
-		this.toUpdateFieldNames = new LinkedList<String>();
-		this.onIdSet();
 	}
 }

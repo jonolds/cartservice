@@ -26,6 +26,10 @@ import edu.uark.dataaccess.repository.helpers.where.WhereContainer;
 
 public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRepositoryInterface<T> {
 	protected DatabaseTable primaryTable;
+	
+	protected BaseRepository(DatabaseTable primaryTable) {
+		this.primaryTable = primaryTable;
+	}
 
 	public int count( ) {
 		return countWhere(null, null);
@@ -72,14 +76,12 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 
 				connection.commit();
 			} catch (SQLException e) {
-				// TODO: Replace with real logging...
 				System.out.printf("A SQLException occurred in save many. The last attempted ID was %s. %s\n",
 						lastAttemptedId.toString(), e.getMessage());
 			} finally {
 				connection.setAutoCommit(true);
 			}
 		} catch (SQLException e) {
-			// TODO: Replace with real logging...
 			System.out.printf("A SQLException occurred in save many while attempting a connection. %s\n",
 					e.getMessage());
 		} catch (URISyntaxException e) {
@@ -94,7 +96,6 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 			try {
 				ps.setArray(1, ps.getConnection().createArrayOf("uuid", ids.toArray(new UUID[ids.size()])));
 			} catch (SQLException e) { }
-
 			return ps;
 		});
 	}
@@ -115,14 +116,12 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 
 				connection.commit();
 			} catch (SQLException e) {
-				// TODO: Replace with real logging...
 				System.out.printf("A SQLException occurred in delete many. The last attempted ID was %s. %s\n",
 						lastAttemptedId.toString(), e.getMessage());
 			} finally {
 				connection.setAutoCommit(true);
 			}
 		} catch (SQLException e) {
-			// TODO: Replace with real logging...
 			System.out.printf("A SQLException occurred in delete many while attempting a connection. %s\n",
 					e.getMessage());
 		} catch (URISyntaxException e) {
@@ -143,7 +142,6 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 		try (Connection connection = openConnection()) {
 			action.accept(connection);
 		} catch (SQLException e) {
-			// TODO: Replace with real logging...
 			System.out.printf("A SQLException occurred in connect and run. %s\n", e.getMessage());
 		} catch (URISyntaxException e) {
 			System.out.printf("A URISyntaxException occurred in connect and run. %s\n", e.getMessage());
@@ -198,7 +196,6 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 				model.load(rs);
 			}
 		} catch (SQLException e) {
-			// TODO: Replace with real logging...
 			System.out.printf("A SQLException occurred in first or default query. %s\n", e.getMessage());
 		} catch (URISyntaxException e) {
 			System.out.printf("A URISyntaxException occurred in first or default query. %s\n", e.getMessage());
@@ -207,7 +204,6 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 		if (model != null) {
 			model.onLoadComplete();
 		}
-
 		return model;
 	}
 
@@ -275,7 +271,6 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 				results.add(model);
 			}
 		} catch (SQLException e) {
-			// TODO: Replace with real logging...
 			System.out.printf("A SQLException occurred in all query. %s\n", e.getMessage());
 		} catch (URISyntaxException e) {
 			System.out.printf("A URISyntaxException occurred in all query. %s\n", e.getMessage());
@@ -284,7 +279,6 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 		for (T result : results) {
 			result.onLoadComplete();
 		}
-
 		return results;
 	}
 
@@ -319,12 +313,10 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 				exists = rs.getBoolean(1);
 			}
 		} catch (SQLException e) {
-			// TODO: Replace with real logging...
 			System.out.printf("A SQLException occurred in exists query. %s\n", e.getMessage());
 		} catch (URISyntaxException e) {
 			System.out.printf("A URISyntaxException occurred in exists query. %s\n", e.getMessage());
 		}
-
 		return exists;
 	}
 
@@ -350,12 +342,10 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 				count = rs.getInt(1);
 			}
 		} catch (SQLException e) {
-			// TODO: Replace with real logging...
 			System.out.printf("A SQLException occurred in count query. %s\n", e.getMessage());
 		} catch (URISyntaxException e) {
 			System.out.printf("A URISyntaxException occurred in count query. %s\n", e.getMessage());
 		}
-
 		return count;
 	}
 
@@ -375,7 +365,6 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 
 			ps.execute();
 		} catch (SQLException e) {
-			// TODO: Replace with real logging...
 			System.out.printf("A SQLException occurred in delete command. %s\n", e.getMessage());
 		} catch (URISyntaxException e) {
 			System.out.printf("A URISyntaxException occurred in delete command. %s\n", e.getMessage());
@@ -386,7 +375,6 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 	selectQuery(String[] projection, JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset) {
 		StringBuilder selectQuery = new StringBuilder().append("SELECT ").append(String.join(",", projection))
 				.append(fromAndWhereClause(joins, where, orderBy, limit, offset));
-
 		return selectQuery.toString();
 	}
 
@@ -395,14 +383,12 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 	existsQuery(JoinContainer[] joins, WhereContainer where, OrderByContainer[] orderBy, int limit, int offset) {
 		StringBuilder existsQuery = new StringBuilder().append("SELECT EXISTS (SELECT 1")
 				.append(fromAndWhereClause(joins, where, orderBy, limit, offset)).append(")");
-
 		return existsQuery.toString();
 	}
 
 	private String deleteCommand(WhereContainer where) {
 		StringBuilder deleteCommand = new StringBuilder().append("DELETE ")
 				.append(fromAndWhereClause(null, where, null, INVALID_INDEX, INVALID_INDEX));
-
 		return deleteCommand.toString();
 	}
 
@@ -415,31 +401,22 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 				fromAndWhereClause.append(joinTo.toString());
 			}
 		}
-
 		if (where != null) {
 			fromAndWhereClause.append(where.toString());
 		}
-
 		if ((orderBy != null) && (orderBy.length > 0)) {
 			fromAndWhereClause.append(" ORDER BY ")
 					.append(Arrays.stream(orderBy).map(o -> o.toString()).collect(Collectors.joining(", ")));
 		}
-
 		if (limit >= 0) {
 			fromAndWhereClause.append(" LIMIT ").append(limit);
 		}
-
 		if (offset >= 0) {
 			fromAndWhereClause.append(" OFFSET ").append(offset);
 		}
-
 		return fromAndWhereClause.toString();
 	}
 
 	private static final int INVALID_INDEX = -1;
 	private static final String COUNT_PROJECTION = "COUNT(*)";
-
-	protected BaseRepository(DatabaseTable primaryTable) {
-		this.primaryTable = primaryTable;
-	}
 }

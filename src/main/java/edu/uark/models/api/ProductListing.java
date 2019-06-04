@@ -5,11 +5,14 @@ import java.util.List;
 
 public class ProductListing {
 	private List<Product> products;
-
+	
+	public ProductListing( ) {
+		this.products = new LinkedList<Product>();
+	}
+	
 	public List<Product> getProducts( ) {
 		return this.products;
 	}
-
 	public ProductListing setProducts(List<Product> products) {
 		this.products = products;
 		return this;
@@ -18,9 +21,5 @@ public class ProductListing {
 	public ProductListing addProduct(Product product) {
 		this.products.add(product);
 		return this;
-	}
-
-	public ProductListing( ) {
-		this.products = new LinkedList<Product>();
 	}
 }

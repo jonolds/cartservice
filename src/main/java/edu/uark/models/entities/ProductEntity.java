@@ -16,6 +16,10 @@ import edu.uark.models.repositories.ProductRepository;
 
 public class ProductEntity extends BaseEntity<ProductEntity> {
 	
+	private String lookupCode;
+	private int count;
+	private LocalDateTime createdOn;
+	
 	/*CONSTRUCTORS*/
 	public ProductEntity( ) {
 		super(new ProductRepository());
@@ -51,7 +55,6 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 		return record;
 	}
 
-	private String lookupCode;
 	public String getLookupCode( ) {
 		return this.lookupCode;
 	}
@@ -63,7 +66,6 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 		return this;
 	}
 
-	private int count;
 	public int getCount( ) {
 		return this.count;
 	}
@@ -75,7 +77,6 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 		return this;
 	}
 
-	private LocalDateTime createdOn;
 	public LocalDateTime getCreatedOn( ) {
 		return this.createdOn;
 	}
