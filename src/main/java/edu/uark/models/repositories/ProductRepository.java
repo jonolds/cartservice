@@ -13,6 +13,11 @@ import edu.uark.models.entities.fieldnames.ProductFieldNames;
 import edu.uark.models.repositories.interfaces.ProductRepositoryInterface;
 
 public class ProductRepository extends BaseRepository<ProductEntity> implements ProductRepositoryInterface {
+
+	public ProductRepository( ) {
+		super(DatabaseTable.PRODUCT);
+	}
+	
 	@Override
 	public ProductEntity byLookupCode(String lookupCode) {
 		return this.firstOrDefaultWhere(
@@ -30,9 +35,5 @@ public class ProductRepository extends BaseRepository<ProductEntity> implements 
 	@Override
 	public ProductEntity createOne( ) {
 		return new ProductEntity();
-	}
-
-	public ProductRepository( ) {
-		super(DatabaseTable.PRODUCT);
 	}
 }
